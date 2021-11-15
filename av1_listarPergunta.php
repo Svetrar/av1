@@ -40,7 +40,9 @@
         foreach ($linhas as $L) 
 		{
             echo "<tr>";
+		
             $C = array();
+		
             $C = explode(";", $L);
 			
             foreach ($C as $coluna)
