@@ -64,8 +64,6 @@
 
 <br>
 
-<br>
-
 <form action="av1_alterarPergunta.php" method="POST">
 
         Identificação da Pergunta: <input type="text" name="id" value="<?php echo $colunasArquivo[0]; ?>"> <br>
