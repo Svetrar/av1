@@ -1,9 +1,13 @@
 <?php
+
     $linhas = array();
-    $colunas = array();
-    $arquivoAluno = fopen("alunosNovos.txt", "r") or die("Erro na abertura do arquivo");
-    $cabecalho =  fgets($arquivoAluno);
-    $colunas = explode(";", $cabecalho);
+	
+    $colunasArquivo = array();
+	
+    $arquivoAluno = fopen("perguntasNovas.txt", "r") or die("Erro na abertura do arquivo");
+	
+    $header =  fgets($arquivoAluno);
+    $colunasArquivo = explode(";", $header);
 	
     while (!feof($arquivoAluno)) 
 	{
@@ -13,24 +17,33 @@
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
 </head>
+
 <body>
-<h1>Listar Aluno</h1>
+
+<h1>Listar Todas as Perguntas</h1>
+
 <br>
-	<a href="ex13_inserirAluno.php">Inserir</a><br>
-	<a href="ex13_alterarAluno.php">Alterar</a><br>
-	<a href="ex13_listarAlunos.php">Listar</a><br>
-	<a href="ex13_excluirArquivo.php">Excluir</a><br>
-<br><br>
+	<a href="av1_home.php">Home</a><br>
+	<a href="av1_criarPergunta.php">Criar</a><br>
+	<a href="av1_alterarPergunta.php">Alterar</a><br>
+	<a href="av1_listarPergunta.php">Listar Todas as Perguntas</a><br>
+	<a href="av1_listarUmaPergunta.php">Listar Uma Pergunta</a><br>
+	<a href="av1_excluirUmaPergunta.php">Excluir</a><br>
+
+<br>
+
 <table>
         <?php
-        foreach ($linhas as $linha) {
+        foreach ($linhas as $L) 
+		{
             echo "<tr>";
-            $colunas1 = array();
-            $colunas1 = explode(";", $linha);
+            $C = array();
+            $C = explode(";", $L);
 			
-            foreach ($colunas1 as $coluna)
+            foreach ($C as $coluna)
 			{
                 echo "<td>$coluna</td>";
             }
@@ -38,5 +51,7 @@
         }
         ?>
 </table>
+
 </body>
+
 </html>
