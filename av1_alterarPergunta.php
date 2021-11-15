@@ -7,6 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		
 		//perguntas 
         $P = $_POST["p"];
+		
+		$Q = $_POST["q"];
+		
+		$D = $_POST["d"];
 
 		$colunasArquivos = array();
 		
@@ -30,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			
 			if ($colunasArquivos[0] == $ID)
 			{
-				$txt = "$ID; $P\n";
+				$txt = "$ID; $P; $Q; $D\n";
 			} 
 			else 
 			{
