@@ -71,6 +71,10 @@
         Identificação da Pergunta: <input type="text" name="id" value="<?php echo $colunasArquivo[0]; ?>"> <br>
 			
 		Pergunta: <input type="text" name="p" value="<?php echo $colunasArquivo[1]; ?>"> <br>
+		
+		Qtd de pontos: <input type=text name="q" value="<?php echo $colunasArquivo[2]; ?>"> <br>
+	
+		Grau de dificuldade: <input type=text name="d" value="<?php echo $colunasArquivo[3]; ?>"> <br>
 			 	
         <br><br>
 			
