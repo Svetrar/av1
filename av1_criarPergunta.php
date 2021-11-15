@@ -8,15 +8,19 @@
 		//perguntas 
         $P = $_POST["p"];
 		
+		$Q = $_POST["q"];
+		
+		$D = $_POST["d"];
+		
 		
 		//pergunta
         if (!file_exists("perguntasNovas.txt")) 
 		{
-            $header = "ID da Pergunta: ; Pergunta: \n";
+            $header = "ID da Pergunta: ; Pergunta: ; Qtd de pontos: ; Grau de dificuldade: \n";
             file_put_contents("perguntasNovas.txt", $header);
         }
 		
-        $txt = $ID . ";" . $P;	
+        $txt = $ID . ";" . $P . ";" . $Q . ";" . $D;	
         file_put_contents("perguntasNovas.txt", $txt, FILE_APPEND);
 		
     }
@@ -45,7 +49,13 @@
 <form action="av1_criarPergunta.php" method=POST>
 
 	Identificação da Pergunta: <input type=text name="id"> <br>
+	
     Pergunta: <input type=text name="p"> <br>
+	
+	Qtd de pontos: <input type=text name="q"> <br>
+	
+	Grau de dificuldade: <input type=text name="d"> <br>
+	
 	
     <br><br>
     <input type="submit" value="Criar Perguntas">
