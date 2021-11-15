@@ -2,11 +2,9 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{
 		
-		//ids das perguntas
 		$ID = $_POST["id"];
 		
-		//perguntas 
-        $P = $_POST["p"];
+        	$P = $_POST["p"];
 		
 		$Q = $_POST["q"];
 		
