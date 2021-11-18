@@ -21,11 +21,9 @@
 		{
 			$linhas[] = fgets($arquivoAluno);
 			
-			echo $linhas[$x];
 			
 			$colunasArquivo = explode(";", $linhas[$x]);
-			
-			echo "Arquivo: $colunasArquivo[0] / ID PERGUNTA:  $ID<br>";	
+				
 			
 			
 			if ($colunasArquivo[0] == $ID) 
