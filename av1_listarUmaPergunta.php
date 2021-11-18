@@ -1,3 +1,51 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	{
+		
+		//ids das perguntas
+		$ID = $_POST["id"];
+		
+		//perguntas 
+        $P = $_POST["p"];
+		
+		$Q = $_POST["q"];
+		
+		$D = $_POST["d"];
+
+		$colunasArquivos = array();
+		
+		
+		//
+		$arquivoAlunoIn = fopen("perguntasNovas.txt", "r") or die("Erro na abertura do arquivo");
+		
+		while (!feof($arquivoAlunoIn)) 
+		{
+			$linhas[] = fgets($arquivoAlunoIn);
+		}
+		fclose($arquivoAlunoIn);
+
+		$arquivoAlunoOut = fopen("perguntasNovas.txt", "w") or die("Erro na abertura do arquivo");
+		
+		$x = 0;
+
+		foreach ($linhas as $valueLinha) 
+		{
+			$colunasArquivos = explode(";", $valueLinha);
+			
+			if ($colunasArquivos[0] == $ID)
+			{
+				$txt = "$ID; $P; $Q; $D\n";
+			} 
+			else 
+			{
+				$txt = $valueLinha;
+			}
+			fwrite($arquivoAlunoOut, $txt);
+		}
+		fclose($arquivoAlunoOut);
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +54,7 @@
 
 <body>
 
-<h1>3DAW - Listar Apenas Uma Pergunta</h1>
+<h1>3DAW - Buscar e Listar Pergunta</h1>
 
 <br>
 	<a href="av1_home.php">Home</a><br>
@@ -20,18 +68,18 @@
 
 <br>
 
-<form action="av1_alterarPergunta.php" method="POST">
+<form action="av1_auxListarUmaPergunta.php" method="GET">
 
-        Identificação da Pergunta: <input type=text name="id" value='<?php echo $colunasArquivo[0]; ?>'> <br>
-			
-		Pergunta: <input type=text name="p" value='<?php echo $colunasArquivo[1]; ?>'> <br>
-			 	
-        <br><br>
-			
-        <input type="submit" value="Alterar">
+    ID: <input type=text name="id">
+		
+    <br><br>
+	
+    <input type="submit" value="Listar">
+	
 </form>
 
 <br>
+
 
 </body>
 
