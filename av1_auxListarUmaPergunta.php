@@ -72,7 +72,7 @@
 	
 		Grau de dificuldade: <input type=text name="d" value="<?php echo $colunasArquivo[3]; ?>"> <br>
 			 	
-        <br><br>
+        <br>
 			
         <input type="submit" value="Busca Listar">
 </form>
